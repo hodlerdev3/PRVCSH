@@ -18,7 +18,7 @@ export const siteConfig = {
   tagline: 'Your Privacy, Your Power',
   
   // URLs
-  url: process.env.NEXT_PUBLIC_APP_URL || 'https://privacycash.io',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://prvcsh.io',
   ogImage: '/og-image.png',
   twitterImage: '/twitter-card.png',
   
@@ -27,8 +27,8 @@ export const siteConfig = {
   accentColor: '#22D3EE', // cipher-noir-neon-cyan
   
   // Social
-  twitter: '@PRVCSH',
-  github: 'https://github.com/Privacy-Cash/prvcsh',
+  twitter: '@prvcsh',
+  github: 'https://github.com/hodlerdev3/PRVCSH',
   
   // Team
   creator: 'PRVCSH Team',

@@ -65,7 +65,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/nicholasoxford/PRVCSH.git
+git clone https://github.com/hodlerdev3/PRVCSH.git
 cd PRVCSH
 
 # Install dependencies
@@ -185,6 +185,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 </p>
 
 <p align="center">
-  <a href="https://github.com/nicholasoxford/PRVCSH">GitHub</a> •
-  <a href="https://x.com/nicholasoxford">Twitter</a>
+  <a href="https://github.com/hodlerdev3/PRVCSH">GitHub</a> •
+  <a href="https://x.com/prvcsh">𝕏</a>
 </p>
