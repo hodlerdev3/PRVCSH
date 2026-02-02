@@ -1,0 +1,45 @@
+{
+  "name": "@prvcsh/batch",
+  "version": "0.1.0",
+  "description": "Batch processing and transaction queue for PRVCSH",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prvcsh/prvcsh"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.87.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "solana",
+    "privacy",
+    "batch",
+    "queue",
+    "transactions",
+    "optimization"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "@prvcsh/dex",
+  "version": "0.1.0",
+  "description": "Privacy DEX - Anonymous AMM and swap functionality for PRVCSH",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js"
+    },
+    "./pool": {
+      "types": "./dist/pool/index.d.ts",
+      "import": "./dist/pool/index.js"
+    },
+    "./swap": {
+      "types": "./dist/swap/index.d.ts",
+      "import": "./dist/swap/index.js"
+    },
+    "./liquidity": {
+      "types": "./dist/liquidity/index.d.ts",
+      "import": "./dist/liquidity/index.js"
+    },
+    "./router": {
+      "types": "./dist/router/index.d.ts",
+      "import": "./dist/router/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.17.24",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.0"
+  },
+  "keywords": [
+    "privacy",
+    "dex",
+    "amm",
+    "solana",
+    "zk-proof",
+    "swap",
+    "liquidity",
+    "mev-protection"
+  ],
+  "author": "PRVCSH Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prvcsh/prvcsh",
+    "directory": "packages/dex"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

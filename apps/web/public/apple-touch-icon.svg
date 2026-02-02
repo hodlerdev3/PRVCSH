@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <defs>
+    <!-- Gradient for shield background -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <!-- Glow effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#0A0A0F"/>
+  
+  <!-- Outer glow ring -->
+  <circle cx="90" cy="90" r="80" stroke="#22D3EE" stroke-width="1" opacity="0.2"/>
+  <circle cx="90" cy="90" r="70" stroke="#818CF8" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Shield shape -->
+  <path 
+    d="M90 25L35 50V95C35 129.025 58.375 158.25 90 165C121.625 158.25 145 129.025 145 95V50L90 25Z" 
+    fill="url(#shieldGrad)" 
+    filter="url(#glow)"
+  />
+  
+  <!-- Shield inner highlight -->
+  <path 
+    d="M90 35L45 57V95C45 123.4 64.75 148.25 90 155C115.25 148.25 135 123.4 135 95V57L90 35Z" 
+    fill="#0A0A0F" 
+    opacity="0.75"
+  />
+  
+  <!-- Lock body -->
+  <rect x="65" y="82" width="50" height="42" rx="6" fill="#22D3EE"/>
+  
+  <!-- Lock shackle -->
+  <path 
+    d="M72 82V70C72 60.0589 80.0589 52 90 52V52C99.9411 52 108 60.0589 108 70V82" 
+    stroke="#22D3EE" 
+    stroke-width="8" 
+    fill="none"
+    stroke-linecap="round"
+  />
+  
+  <!-- Keyhole -->
+  <circle cx="90" cy="98" r="8" fill="#0A0A0F"/>
+  <rect x="86" y="98" width="8" height="16" rx="3" fill="#0A0A0F"/>
+</svg>

@@ -1,0 +1,75 @@
+{
+  "name": "@prvcsh/dao",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Privacy DAO - Anonymous governance for PRVCSH",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./types": {
+      "import": "./dist/types/index.mjs",
+      "require": "./dist/types/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./governance": {
+      "import": "./dist/governance/index.mjs",
+      "require": "./dist/governance/index.js",
+      "types": "./dist/governance/index.d.ts"
+    },
+    "./voting": {
+      "import": "./dist/voting/index.mjs",
+      "require": "./dist/voting/index.js",
+      "types": "./dist/voting/index.d.ts"
+    },
+    "./timelock": {
+      "import": "./dist/timelock/index.mjs",
+      "require": "./dist/timelock/index.js",
+      "types": "./dist/timelock/index.d.ts"
+    },
+    "./delegation": {
+      "import": "./dist/delegation/index.mjs",
+      "require": "./dist/delegation/index.js",
+      "types": "./dist/delegation/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.5.0",
+    "vitest": "^1.2.0"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.95.0"
+  },
+  "keywords": [
+    "solana",
+    "dao",
+    "governance",
+    "privacy",
+    "zk-proofs",
+    "voting",
+    "anonymous"
+  ],
+  "author": "PRVCSH Team",
+  "license": "MIT"
+}

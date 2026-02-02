@@ -1,0 +1,65 @@
+{
+  "name": "expo-prvcsh",
+  "version": "0.1.0",
+  "description": "PRVCSH SDK for Expo applications",
+  "main": "build/index.js",
+  "module": "build/index.mjs",
+  "types": "build/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prvcsh/prvcsh"
+  },
+  "exports": {
+    ".": {
+      "import": "./build/index.mjs",
+      "require": "./build/index.js",
+      "types": "./build/index.d.ts"
+    },
+    "./plugin": {
+      "import": "./plugin/build/index.mjs",
+      "require": "./plugin/build/index.js",
+      "types": "./plugin/build/index.d.ts"
+    }
+  },
+  "files": [
+    "build",
+    "plugin",
+    "app.plugin.js"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:plugin": "tsup --config tsup.plugin.config.ts",
+    "clean": "rm -rf build plugin/build",
+    "lint": "eslint src plugin/src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "expo": ">=49.0.0",
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0"
+  },
+  "dependencies": {
+    "@prvcsh/react-native": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.72.0",
+    "expo": "^49.0.0",
+    "expo-modules-core": "^1.0.0",
+    "react": "^18.2.0",
+    "react-native": "^0.72.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "expo",
+    "react-native",
+    "solana",
+    "privacy",
+    "zk-proof",
+    "crypto",
+    "wallet",
+    "payments"
+  ]
+}

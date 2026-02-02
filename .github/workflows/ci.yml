@@ -1,0 +1,304 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+  NEXT_TELEMETRY_DISABLED: 1
+
+jobs:
+  # ============================================
+  # INSTALL & CACHE
+  # ============================================
+  install:
+    name: 📦 Install Dependencies
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            apps/**/node_modules
+            packages/**/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+  # ============================================
+  # LINT
+  # ============================================
+  lint:
+    name: 🔍 Lint
+    runs-on: ubuntu-latest
+    needs: install
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Restore node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            apps/**/node_modules
+            packages/**/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run ESLint
+        run: pnpm lint
+
+  # ============================================
+  # TYPE CHECK
+  # ============================================
+  typecheck:
+    name: 📝 TypeScript Check
+    runs-on: ubuntu-latest
+    needs: install
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Restore node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            apps/**/node_modules
+            packages/**/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run TypeScript check
+        run: pnpm check-types
+
+  # ============================================
+  # BUILD
+  # ============================================
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck]
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Restore node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            apps/**/node_modules
+            packages/**/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_APP_URL: https://privacycash.io
+          NEXT_PUBLIC_SOLANA_RPC_URL: https://api.devnet.solana.com
+          NEXT_PUBLIC_SOLANA_NETWORK: devnet
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            apps/web/.next
+            packages/*/dist
+          retention-days: 7
+
+  # ============================================
+  # TEST
+  # ============================================
+  test:
+    name: 🧪 Test
+    runs-on: ubuntu-latest
+    needs: install
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Restore node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            apps/**/node_modules
+            packages/**/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm test --if-present
+
+  # ============================================
+  # SECURITY AUDIT
+  # ============================================
+  security:
+    name: 🔒 Security Audit
+    runs-on: ubuntu-latest
+    needs: install
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run security audit
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
+
+  # ============================================
+  # PR COMMENT
+  # ============================================
+  pr-comment:
+    name: 💬 PR Status
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Add success comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('✅ CI Passed')
+            );
+            
+            const body = `## ✅ CI Passed
+            
+            | Check | Status |
+            |-------|--------|
+            | 🔍 Lint | ✅ Passed |
+            | 📝 TypeScript | ✅ Passed |
+            | 🏗️ Build | ✅ Passed |
+            | 🧪 Tests | ✅ Passed |
+            
+            ---
+            *Powered by Privacy Cash CI*`;
+            
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

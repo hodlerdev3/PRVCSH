@@ -34,6 +34,17 @@ export const config = [
       ...pluginReactHooks.configs.recommended.rules,
       // React scope no longer necessary with new JSX transform.
       "react/react-in-jsx-scope": "off",
+      // React hooks rules
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      // React best practices
+      "react/prop-types": "off",
+      "react/display-name": "off",
+      "react/no-unescaped-entities": "warn",
+      "react/jsx-curly-brace-presence": ["warn", { props: "never", children: "never" }],
+      "react/jsx-boolean-value": ["warn", "never"],
+      "react/self-closing-comp": "warn",
+      "react/jsx-no-useless-fragment": "warn",
     },
   },
 ];

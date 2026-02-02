@@ -1,0 +1,47 @@
+# Vercel Ignore File
+# Files and directories to ignore during deployment
+
+# Development files
+.git
+.github
+.vscode
+.idea
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+__tests__/
+coverage/
+.nyc_output/
+
+# Development configs
+.eslintrc*
+.prettierrc*
+.editorconfig
+jest.config.*
+vitest.config.*
+playwright.config.*
+
+# Build cache
+.turbo
+.next/cache
+
+# Local env files (production env is set in Vercel)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Package manager files
+.pnpm-debug.log
+
+# OS files
+.DS_Store
+Thumbs.db

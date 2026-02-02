@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Shield shape - single color for pinned tab -->
+  <path 
+    d="M16 4L6 8V15C6 21.075 10.25 26.575 16 28C21.75 26.575 26 21.075 26 15V8L16 4Z" 
+    fill="#000"
+  />
+  
+  <!-- Lock body (negative space) -->
+  <rect x="12" y="14" width="8" height="7" rx="1" fill="#FFF"/>
+  
+  <!-- Lock shackle -->
+  <path 
+    d="M13 14V12C13 10.3431 14.3431 9 16 9V9C17.6569 9 19 10.3431 19 12V14" 
+    stroke="#FFF" 
+    stroke-width="1.5" 
+    fill="none"
+    stroke-linecap="round"
+  />
+  
+  <!-- Keyhole -->
+  <circle cx="16" cy="16.5" r="1.2" fill="#000"/>
+  <rect x="15.4" y="16.5" width="1.2" height="2.5" rx="0.4" fill="#000"/>
+</svg>

@@ -1,0 +1,262 @@
+{
+  "$schema": "https://raw.githubusercontent.com/discord/discord-api-docs/main/schemas/server_template.json",
+  "name": "PRVCSH Community",
+  "description": "Official Discord community for PRVCSH - Privacy-first payments on Solana",
+  "icon": null,
+  "verification_level": 1,
+  "default_message_notifications": 1,
+  "explicit_content_filter": 2,
+  "roles": [
+    {
+      "id": "0",
+      "name": "@everyone",
+      "permissions": "1071698529857"
+    },
+    {
+      "id": "1",
+      "name": "Admin",
+      "color": 15158332,
+      "hoist": true,
+      "permissions": "8",
+      "mentionable": false
+    },
+    {
+      "id": "2",
+      "name": "Moderator",
+      "color": 3447003,
+      "hoist": true,
+      "permissions": "1099511627766",
+      "mentionable": true
+    },
+    {
+      "id": "3",
+      "name": "Team",
+      "color": 10181046,
+      "hoist": true,
+      "permissions": "1071698660929",
+      "mentionable": false
+    },
+    {
+      "id": "4",
+      "name": "Contributor",
+      "color": 15844367,
+      "hoist": true,
+      "permissions": "1071698529857",
+      "mentionable": false
+    },
+    {
+      "id": "5",
+      "name": "Builder",
+      "color": 3066993,
+      "hoist": false,
+      "permissions": "1071698529857",
+      "mentionable": false
+    },
+    {
+      "id": "6",
+      "name": "Beta Tester",
+      "color": 10038562,
+      "hoist": false,
+      "permissions": "1071698529857",
+      "mentionable": false
+    },
+    {
+      "id": "7",
+      "name": "Announcements",
+      "color": 0,
+      "hoist": false,
+      "permissions": "0",
+      "mentionable": true
+    },
+    {
+      "id": "8",
+      "name": "Updates",
+      "color": 0,
+      "hoist": false,
+      "permissions": "0",
+      "mentionable": true
+    },
+    {
+      "id": "9",
+      "name": "Events",
+      "color": 0,
+      "hoist": false,
+      "permissions": "0",
+      "mentionable": true
+    },
+    {
+      "id": "10",
+      "name": "Verified",
+      "color": 2067276,
+      "hoist": false,
+      "permissions": "1071698529857",
+      "mentionable": false
+    }
+  ],
+  "channels": [
+    {
+      "id": "100",
+      "type": 4,
+      "name": "📋 Information",
+      "position": 0
+    },
+    {
+      "id": "101",
+      "type": 0,
+      "name": "welcome",
+      "position": 1,
+      "parent_id": "100",
+      "topic": "Welcome to PRVCSH! Start here."
+    },
+    {
+      "id": "102",
+      "type": 0,
+      "name": "announcements",
+      "position": 2,
+      "parent_id": "100",
+      "topic": "Official announcements and updates"
+    },
+    {
+      "id": "103",
+      "type": 0,
+      "name": "rules",
+      "position": 3,
+      "parent_id": "100",
+      "topic": "Community rules and guidelines"
+    },
+    {
+      "id": "104",
+      "type": 0,
+      "name": "faq",
+      "position": 4,
+      "parent_id": "100",
+      "topic": "Frequently asked questions"
+    },
+    {
+      "id": "200",
+      "type": 4,
+      "name": "💬 Discussion",
+      "position": 5
+    },
+    {
+      "id": "201",
+      "type": 0,
+      "name": "general",
+      "position": 6,
+      "parent_id": "200",
+      "topic": "General discussion about PRVCSH"
+    },
+    {
+      "id": "202",
+      "type": 0,
+      "name": "support",
+      "position": 7,
+      "parent_id": "200",
+      "topic": "Get help with PRVCSH"
+    },
+    {
+      "id": "203",
+      "type": 0,
+      "name": "dev-talk",
+      "position": 8,
+      "parent_id": "200",
+      "topic": "Developer discussions and questions"
+    },
+    {
+      "id": "204",
+      "type": 0,
+      "name": "showcase",
+      "position": 9,
+      "parent_id": "200",
+      "topic": "Share what you've built!"
+    },
+    {
+      "id": "300",
+      "type": 4,
+      "name": "💻 Development",
+      "position": 10
+    },
+    {
+      "id": "301",
+      "type": 0,
+      "name": "sdk-help",
+      "position": 11,
+      "parent_id": "300",
+      "topic": "Get help with PRVCSH SDK"
+    },
+    {
+      "id": "302",
+      "type": 0,
+      "name": "smart-contracts",
+      "position": 12,
+      "parent_id": "300",
+      "topic": "On-chain development discussions"
+    },
+    {
+      "id": "303",
+      "type": 0,
+      "name": "frontend",
+      "position": 13,
+      "parent_id": "300",
+      "topic": "Frontend development"
+    },
+    {
+      "id": "304",
+      "type": 0,
+      "name": "mobile",
+      "position": 14,
+      "parent_id": "300",
+      "topic": "React Native & Expo development"
+    },
+    {
+      "id": "400",
+      "type": 4,
+      "name": "🎉 Community",
+      "position": 15
+    },
+    {
+      "id": "401",
+      "type": 0,
+      "name": "introductions",
+      "position": 16,
+      "parent_id": "400",
+      "topic": "Introduce yourself to the community"
+    },
+    {
+      "id": "402",
+      "type": 0,
+      "name": "ideas",
+      "position": 17,
+      "parent_id": "400",
+      "topic": "Share ideas and feature requests"
+    },
+    {
+      "id": "403",
+      "type": 0,
+      "name": "off-topic",
+      "position": 18,
+      "parent_id": "400",
+      "topic": "Off-topic discussions"
+    },
+    {
+      "id": "500",
+      "type": 4,
+      "name": "🔊 Voice",
+      "position": 19
+    },
+    {
+      "id": "501",
+      "type": 2,
+      "name": "General Voice",
+      "position": 20,
+      "parent_id": "500"
+    },
+    {
+      "id": "502",
+      "type": 2,
+      "name": "Dev Office Hours",
+      "position": 21,
+      "parent_id": "500"
+    }
+  ]
+}
