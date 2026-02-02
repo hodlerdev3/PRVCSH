@@ -54,7 +54,7 @@
     "@types/node": "^20.17.24",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vitest": "^3.0.0"
+    "vitest": "^4.0.18"
   },
   "keywords": [
     "privacy",
