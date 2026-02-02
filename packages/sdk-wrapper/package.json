@@ -37,7 +37,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/bn.js": "^5.2.0",
     "@types/node": "^22.15.3",
-    "@types/react": "19.2.2",
+    "@types/react": "19.2.10",
     "eslint": "^9.39.1",
     "typescript": "5.9.2"
   },
