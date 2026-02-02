@@ -1,38 +1,122 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ====================================
+# Privacy Cash Ecosystem - .gitignore
+# ====================================
 
+# ------------------------------------
 # Dependencies
-node_modules
+# ------------------------------------
+node_modules/
 .pnp
 .pnp.js
+.pnpm-debug.log*
 
-# Local env files
+# ------------------------------------
+# Environment Variables
+# ------------------------------------
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+!.env.example
 
-# Testing
-coverage
-
-# Turbo
-.turbo
-
-# Vercel
-.vercel
-
+# ------------------------------------
 # Build Outputs
+# ------------------------------------
 .next/
 out/
-build
-dist
+build/
+dist/
+.turbo/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
 
+# ------------------------------------
+# Testing & Coverage
+# ------------------------------------
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+playwright/.cache/
 
-# Debug
+# ------------------------------------
+# IDE & Editor
+# ------------------------------------
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+*.swp
+*.swo
+*~
+
+# ------------------------------------
+# Vercel
+# ------------------------------------
+.vercel/
+
+# ------------------------------------
+# Debug Logs
+# ------------------------------------
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Misc
+# ------------------------------------
+# OS Generated
+# ------------------------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ------------------------------------
+# Security - Private Keys & Secrets
+# ------------------------------------
 *.pem
+*.p12
+*.key
+*.cert
+*.crt
+secrets/
+.secrets/
+keypair.json
+wallet.json
+private_key.txt
+
+# ------------------------------------
+# ZK Proof Files (Large)
+# ------------------------------------
+*.zkey
+*.ptau
+*.r1cs
+*.wasm
+zk_artifacts/
+circuits/build/
+
+# ------------------------------------
+# Solana
+# ------------------------------------
+target/
+Cargo.lock
+*.so
+
+# ------------------------------------
+# Misc
+# ------------------------------------
+*.log
+*.tmp
+*.temp
+.cache/
+tmp/
+temp/

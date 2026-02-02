@@ -1,135 +1,190 @@
-# Turborepo starter
+<p align="center">
+  <img src="https://img.shields.io/badge/PRVCSH-Zero%20Knowledge%20Privacy-00D4AA?style=for-the-badge&logo=solana&logoColor=white" alt="PRVCSH" />
+</p>
 
-This Turborepo starter is maintained by the Turborepo core team.
+<h1 align="center">🔐 PRVCSH</h1>
 
-## Using this example
+<p align="center">
+  <strong>Zero-Knowledge Privacy Protocol for Solana</strong>
+</p>
 
-Run the following command:
+<p align="center">
+  <img src="https://img.shields.io/badge/Solana-Devnet-blueviolet?style=flat-square&logo=solana" alt="Solana" />
+  <img src="https://img.shields.io/badge/ZK-Groth16-00D4AA?style=flat-square" alt="ZK-Groth16" />
+  <img src="https://img.shields.io/badge/Audit-Zigtur-blue?style=flat-square" alt="Audit" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
+</p>
 
-```sh
-npx create-turbo@latest
-```
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#packages">Packages</a> •
+  <a href="#demo">Demo</a>
+</p>
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## 🎯 What is PRVCSH?
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+**PRVCSH** is a privacy-preserving financial infrastructure built on Solana using Zero-Knowledge proofs (Groth16). Users can deposit, shield, and withdraw tokens without revealing transaction history — breaking the on-chain link between sender and receiver.
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│    💰 Deposit          🔐 Shield           💸 Withdraw          │
+│    ─────────    →     ─────────    →     ─────────             │
+│    Public SOL         ZK Mixer           Private SOL            │
+│                                                                 │
+│    Your wallet        Zero-Knowledge      Any wallet            │
+│    is visible         proof generated     (untraceable)         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## ✨ Features
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+| Feature | Description |
+|---------|-------------|
+| 🛡️ **Zero-Knowledge Proofs** | Groth16 ZK-SNARKs ensure complete transaction privacy |
+| ⚡ **Solana Speed** | Sub-second finality with minimal fees (~$0.00025) |
+| 🔒 **Non-Custodial** | Your keys, your coins. No third-party trust required |
+| 📱 **Multi-Platform** | Web app, React Native SDK, and REST API |
+| 💳 **Payment Links** | Generate private payment links for e-commerce |
+| 📊 **Analytics** | Privacy-preserving pool statistics and metrics |
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+## 🚀 Quick Start
 
-### Develop
+### Prerequisites
 
-To develop all apps and packages, run the following command:
+- Node.js 18+
+- pnpm 9+
+- Solana wallet (Phantom, Solflare, etc.)
 
-```
-cd my-turborepo
+### Installation
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+```bash
+# Clone the repository
+git clone https://github.com/nicholasoxford/PRVCSH.git
+cd PRVCSH
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+# Install dependencies
+pnpm install
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+# Setup environment
+cp .env.example .env.local
+# Edit .env.local with your RPC URL
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+# Start development server
+pnpm run dev --filter=@prvcsh/web
 ```
 
-### Remote Caching
+### Open the app
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## 🏗️ Architecture
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+PRVCSH/
+├── apps/
+│   ├── web/              # Next.js 16 frontend
+│   └── docs/             # Documentation site
+├── packages/
+│   ├── sdk-wrapper/      # Browser SDK wrapper
+│   ├── react-native/     # Mobile SDK
+│   ├── payments/         # Payment processing
+│   ├── analytics/        # Pool analytics
+│   ├── batch/            # Batch transactions
+│   ├── dex/              # Private DEX (coming soon)
+│   ├── bridge/           # Cross-chain bridge (coming soon)
+│   ├── dao/              # Governance (coming soon)
+│   └── ui/               # Shared UI components
+└── docs/                 # Architecture docs
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 📦 Packages
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+| Package | Description | Status |
+|---------|-------------|--------|
+| `@prvcsh/sdk-wrapper` | Browser-compatible SDK | ✅ Ready |
+| `@prvcsh/react-native` | React Native SDK | ✅ Ready |
+| `@prvcsh/payments` | Payment links & webhooks | ✅ Ready |
+| `@prvcsh/analytics` | Pool statistics | ✅ Ready |
+| `@prvcsh/batch` | Batch transactions | ✅ Ready |
+| `@prvcsh/dex` | Private DEX | 🚧 WIP |
+| `@prvcsh/bridge` | Cross-chain bridge | 🚧 WIP |
+| `@prvcsh/dao` | Governance | 🚧 WIP |
 
+## 💻 Usage
+
+### Web SDK
+
+```typescript
+import { PRVCSHBrowser } from '@prvcsh/sdk-wrapper';
+
+const client = new PRVCSHBrowser({
+  rpcUrl: 'https://api.devnet.solana.com',
+  network: 'devnet',
+});
+
+// Initialize with wallet
+await client.initializeEncryption(walletAddress, signMessage);
+
+// Deposit SOL
+const result = await client.depositSOL({ amount: '1.0' });
+
+// Withdraw to any address
+const withdrawal = await client.withdrawSOL({
+  amount: '1.0',
+  recipient: 'ANY_SOLANA_ADDRESS',
+});
 ```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
+### React Hook
+
+```tsx
+import { usePRVCSH } from '@prvcsh/sdk-wrapper';
+
+function MixerComponent() {
+  const { deposit, withdraw, getPrivateBalance } = usePRVCSH({
+    config: {
+      rpcUrl: process.env.NEXT_PUBLIC_RPC_URL,
+      network: 'devnet',
+    },
+  });
+
+  // Your component logic
+}
 ```
 
-## Useful Links
+## 🔐 Security
 
-Learn more about the power of Turborepo:
+- **Audited by Zigtur Security**
+- Non-custodial architecture
+- Client-side ZK proof generation
+- Encrypted note storage
+- No IP logging or tracking
 
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 16, React 19, TailwindCSS
+- **Blockchain**: Solana, @solana/web3.js
+- **ZK Proofs**: Groth16 (circom/snarkjs)
+- **Monorepo**: Turborepo + pnpm
+- **Mobile**: React Native + Expo
+
+## 📜 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  <strong>Built with 🛡️ for the Solana ecosystem</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/nicholasoxford/PRVCSH">GitHub</a> •
+  <a href="https://x.com/nicholasoxford">Twitter</a>
+</p>

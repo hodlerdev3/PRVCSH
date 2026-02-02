@@ -1,0 +1,73 @@
+# ====================================
+# Privacy Cash Ecosystem - CODEOWNERS
+# ====================================
+# This file defines who is responsible for code in this repository.
+# Each line is a file pattern followed by one or more owners.
+# Order is important - last matching pattern takes precedence.
+
+# Default owner for everything in the repo
+*                                       @privacy-cash/maintainers
+
+# ====================================
+# Core Packages
+# ====================================
+
+# Web Application
+/apps/web/                              @privacy-cash/frontend
+
+# Documentation Site
+/apps/docs/                             @privacy-cash/docs
+
+# UI Component Library
+/packages/ui/                           @privacy-cash/design-system
+
+# SDK Wrapper (Critical - ZK & Privacy)
+/packages/sdk-wrapper/                  @privacy-cash/core @privacy-cash/security
+
+# Shared Configuration
+/packages/config/                       @privacy-cash/maintainers
+
+# TypeScript Configuration
+/packages/typescript-config/            @privacy-cash/maintainers
+
+# ESLint Configuration
+/packages/eslint-config/                @privacy-cash/maintainers
+
+# ====================================
+# Critical Files (Require Core Team Review)
+# ====================================
+
+# Security-sensitive files
+/packages/sdk-wrapper/src/client/       @privacy-cash/security
+/packages/sdk-wrapper/src/types/        @privacy-cash/security
+
+# Environment configuration
+/.env.example                           @privacy-cash/security
+/.gitignore                             @privacy-cash/maintainers
+
+# CI/CD Configuration
+/.github/                               @privacy-cash/devops
+/.github/workflows/                     @privacy-cash/devops
+
+# Package management
+/package.json                           @privacy-cash/maintainers
+/pnpm-workspace.yaml                    @privacy-cash/maintainers
+/pnpm-lock.yaml                         @privacy-cash/maintainers
+/turbo.json                             @privacy-cash/maintainers
+
+# ====================================
+# Documentation
+# ====================================
+
+*.md                                    @privacy-cash/docs
+/README.md                              @privacy-cash/maintainers
+/LICENSE                                @privacy-cash/maintainers
+
+# ====================================
+# Future Modules (Post-Hackathon)
+# ====================================
+
+# /packages/bridge/                     @privacy-cash/core
+# /packages/private-dex/                @privacy-cash/core
+# /packages/mining/                     @privacy-cash/core
+# /packages/governance/                 @privacy-cash/core

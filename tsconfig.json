@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@prvcsh/ui": ["packages/ui/src"],
+      "@prvcsh/ui/*": ["packages/ui/src/*"],
+      "@prvcsh/sdk-wrapper": ["packages/sdk-wrapper/src"],
+      "@prvcsh/sdk-wrapper/*": ["packages/sdk-wrapper/src/*"],
+      "@prvcsh/config/*": ["packages/config/*"]
+    }
+  },
+  "include": [],
+  "exclude": ["node_modules", "**/node_modules/**", "**/.next/**", "**/dist/**"],
+  "references": [
+    { "path": "apps/web" },
+    { "path": "apps/docs" },
+    { "path": "packages/ui" },
+    { "path": "packages/typescript-config" }
+  ]
+}

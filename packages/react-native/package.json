@@ -1,0 +1,75 @@
+{
+  "name": "@prvcsh/react-native",
+  "version": "0.1.0",
+  "description": "React Native SDK for PRVCSH - Privacy-preserving payments on Solana",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./wallet": {
+      "import": "./dist/wallet.mjs",
+      "require": "./dist/wallet.js",
+      "types": "./dist/wallet.d.ts"
+    },
+    "./components": {
+      "import": "./dist/components.mjs",
+      "require": "./dist/components.js",
+      "types": "./dist/components.d.ts"
+    },
+    "./hooks": {
+      "import": "./dist/hooks.mjs",
+      "require": "./dist/hooks.js",
+      "types": "./dist/hooks.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0"
+  },
+  "dependencies": {
+    "@prvcsh/sdk-wrapper": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.72.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "privacy",
+    "solana",
+    "payments",
+    "react-native",
+    "mobile",
+    "crypto",
+    "wallet"
+  ],
+  "author": "PRVCSH Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prvcsh/react-native-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/prvcsh/react-native-sdk/issues"
+  },
+  "homepage": "https://privacycash.app"
+}

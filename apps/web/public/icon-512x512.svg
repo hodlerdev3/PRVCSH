@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="#0A0A0F"/>
+  
+  <!-- Outer rings -->
+  <circle cx="256" cy="256" r="230" stroke="#22D3EE" stroke-width="2" opacity="0.15"/>
+  <circle cx="256" cy="256" r="200" stroke="#818CF8" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Shield -->
+  <path 
+    d="M256 64L96 128V256C96 352 168 432 256 464C344 432 416 352 416 256V128L256 64Z" 
+    fill="url(#shieldGrad)"
+    filter="url(#glow)"
+  />
+  
+  <!-- Shield inner -->
+  <path 
+    d="M256 96L128 152V256C128 336 188 404 256 432C324 404 384 336 384 256V152L256 96Z" 
+    fill="#0A0A0F" 
+    opacity="0.75"
+  />
+  
+  <!-- Lock body -->
+  <rect x="176" y="216" width="160" height="136" rx="16" fill="#22D3EE"/>
+  
+  <!-- Lock shackle -->
+  <path 
+    d="M200 216V176C200 145.072 225.072 120 256 120C286.928 120 312 145.072 312 176V216" 
+    stroke="#22D3EE" 
+    stroke-width="24" 
+    stroke-linecap="round"
+  />
+  
+  <!-- Keyhole -->
+  <circle cx="256" cy="268" r="24" fill="#0A0A0F"/>
+  <rect x="244" y="268" width="24" height="52" rx="10" fill="#0A0A0F"/>
+</svg>

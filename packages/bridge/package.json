@@ -1,0 +1,71 @@
+{
+  "name": "@prvcsh/bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-chain bridge for PRVCSH - Solana ↔ Ethereum/Polygon",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./types": {
+      "import": "./dist/types/index.mjs",
+      "require": "./dist/types/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./relayer": {
+      "import": "./dist/relayer/index.mjs",
+      "require": "./dist/relayer/index.js",
+      "types": "./dist/relayer/index.d.ts"
+    },
+    "./verifier": {
+      "import": "./dist/verifier/index.mjs",
+      "require": "./dist/verifier/index.js",
+      "types": "./dist/verifier/index.d.ts"
+    },
+    "./lockbox": {
+      "import": "./dist/lockbox/index.mjs",
+      "require": "./dist/lockbox/index.js",
+      "types": "./dist/lockbox/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.0",
+    "ethers": "^6.11.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.5.0",
+    "vitest": "^1.2.0"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.95.0"
+  },
+  "keywords": [
+    "solana",
+    "ethereum",
+    "polygon",
+    "bridge",
+    "cross-chain",
+    "privacy",
+    "zk-proofs"
+  ],
+  "author": "PRVCSH Team",
+  "license": "MIT"
+}

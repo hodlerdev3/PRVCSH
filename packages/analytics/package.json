@@ -1,0 +1,70 @@
+{
+  "name": "@prvcsh/analytics",
+  "version": "0.1.0",
+  "description": "Analytics dashboard and data aggregation for PRVCSH",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prvcsh/prvcsh"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./aggregator": {
+      "import": "./dist/aggregator.mjs",
+      "require": "./dist/aggregator.js",
+      "types": "./dist/aggregator.d.ts"
+    },
+    "./charts": {
+      "import": "./dist/charts.mjs",
+      "require": "./dist/charts.js",
+      "types": "./dist/charts.d.ts"
+    },
+    "./ui": {
+      "import": "./dist/ui.mjs",
+      "require": "./dist/ui.js",
+      "types": "./dist/ui.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.87.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "solana",
+    "privacy",
+    "analytics",
+    "dashboard",
+    "tvl",
+    "metrics"
+  ]
+}

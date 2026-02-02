@@ -1,0 +1,21 @@
+# Ignore artifacts
+node_modules
+.next
+dist
+build
+coverage
+.turbo
+.vercel
+
+# Ignore lockfiles
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Ignore generated files
+*.min.js
+*.min.css
+
+# Ignore specific files
+.env*
+!.env.example

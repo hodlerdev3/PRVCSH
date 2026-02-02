@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0F"/>
+      <stop offset="50%" stop-color="#1A1A25"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
+    </linearGradient>
+    <!-- Shield gradient -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <!-- Text gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="50%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Text shadow -->
+    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#22D3EE" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#22D3EE" stroke-width="0.5" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" stroke="#818CF8" stroke-width="1" fill="none" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="250" stroke="#22D3EE" stroke-width="1" fill="none" opacity="0.1"/>
+  <circle cx="600" cy="315" r="400" stroke="#A78BFA" stroke-width="0.5" fill="none" opacity="0.05"/>
+  
+  <!-- Shield Logo -->
+  <g transform="translate(180, 165)">
+    <!-- Outer glow -->
+    <circle cx="120" cy="150" r="130" stroke="#22D3EE" stroke-width="2" opacity="0.2"/>
+    
+    <!-- Shield shape -->
+    <path 
+      d="M120 30L40 60V150C40 210 75 255 120 270C165 255 200 210 200 150V60L120 30Z" 
+      fill="url(#shieldGrad)" 
+      filter="url(#glow)"
+    />
+    
+    <!-- Shield inner -->
+    <path 
+      d="M120 50L55 75V150C55 200 85 240 120 255C155 240 185 200 185 150V75L120 50Z" 
+      fill="#0A0A0F" 
+      opacity="0.75"
+    />
+    
+    <!-- Lock body -->
+    <rect x="80" y="120" width="80" height="65" rx="8" fill="#22D3EE"/>
+    
+    <!-- Lock shackle -->
+    <path 
+      d="M92 120V100C92 84.536 104.536 72 120 72C135.464 72 148 84.536 148 100V120" 
+      stroke="#22D3EE" 
+      stroke-width="12" 
+      fill="none"
+      stroke-linecap="round"
+    />
+    
+    <!-- Keyhole -->
+    <circle cx="120" cy="145" r="12" fill="#0A0A0F"/>
+    <rect x="114" y="145" width="12" height="25" rx="5" fill="#0A0A0F"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="450" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="url(#textGrad)" filter="url(#textShadow)">
+    Privacy Cash
+  </text>
+  
+  <!-- Tagline -->
+  <text x="450" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#F5F5FA" opacity="0.9">
+    Your Privacy, Your Power
+  </text>
+  
+  <!-- Description -->
+  <text x="450" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#9CA3AF">
+    Private transactions on Solana with zero-knowledge proofs
+  </text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="600" width="1200" height="30" fill="#818CF8" opacity="0.8"/>
+  
+  <!-- Solana badge -->
+  <g transform="translate(450, 470)">
+    <rect x="0" y="0" width="180" height="40" rx="20" fill="#22D3EE" opacity="0.1" stroke="#22D3EE" stroke-width="1"/>
+    <text x="90" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#22D3EE" text-anchor="middle">
+      ⚡ Powered by Solana
+    </text>
+  </g>
+  
+  <!-- ZK badge -->
+  <g transform="translate(650, 470)">
+    <rect x="0" y="0" width="150" height="40" rx="20" fill="#A78BFA" opacity="0.1" stroke="#A78BFA" stroke-width="1"/>
+    <text x="75" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#A78BFA" text-anchor="middle">
+      🔐 ZK-SNARK
+    </text>
+  </g>
+</svg>

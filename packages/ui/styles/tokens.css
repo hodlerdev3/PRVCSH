@@ -1,0 +1,281 @@
+/**
+ * Privacy Cash - Design Tokens (CSS Variables)
+ * Cipher Noir Design System
+ * 
+ * Usage: Import this file in your global CSS/layout
+ * All tokens are prefixed with --pc- (privacy-cash)
+ */
+
+:root {
+  /* ====================================
+   * COLOR SYSTEM - Cipher Noir Palette
+   * ==================================== */
+  
+  /* Surface Colors (Base backgrounds) */
+  --pc-surface-base: #0A0A0F;
+  --pc-surface-deep: #050508;
+  --pc-surface-elevated: #141420;
+  --pc-surface-overlay: #1A1A2E;
+  --pc-surface-highlight: #252538;
+  
+  /* Brand Colors */
+  --pc-brand-primary: #818CF8;      /* Twilight Indigo */
+  --pc-brand-secondary: #22D3EE;    /* Neon Cyan */
+  --pc-brand-accent: #A78BFA;       /* Violet */
+  --pc-brand-glow: #7C3AED;         /* Deep Purple */
+  
+  /* Accent Colors */
+  --pc-cipher-teal: #00F5D4;        /* Privacy indicator */
+  --pc-proof-green: #10B981;        /* Success/verified */
+  --pc-shield-blue: #3B82F6;        /* Security elements */
+  --pc-lock-purple: #8B5CF6;        /* Locked/encrypted */
+  
+  /* Semantic Colors */
+  --pc-success: #10B981;
+  --pc-success-light: #34D399;
+  --pc-success-dark: #059669;
+  
+  --pc-warning: #F59E0B;
+  --pc-warning-light: #FBBF24;
+  --pc-warning-dark: #D97706;
+  
+  --pc-error: #EF4444;
+  --pc-error-light: #F87171;
+  --pc-error-dark: #DC2626;
+  
+  --pc-info: #3B82F6;
+  --pc-info-light: #60A5FA;
+  --pc-info-dark: #2563EB;
+  
+  /* Text Colors */
+  --pc-text-primary: #F5F5FA;
+  --pc-text-secondary: #A1A1B5;
+  --pc-text-muted: #6B6B80;
+  --pc-text-disabled: #4B4B5E;
+  --pc-text-inverse: #0A0A0F;
+  
+  /* Border Colors */
+  --pc-border-subtle: rgba(255, 255, 255, 0.05);
+  --pc-border-default: rgba(255, 255, 255, 0.1);
+  --pc-border-strong: rgba(255, 255, 255, 0.2);
+  --pc-border-focus: #818CF8;
+  
+  /* ====================================
+   * OPACITY SCALE (White variants)
+   * ==================================== */
+  --pc-white-5: rgba(255, 255, 255, 0.05);
+  --pc-white-10: rgba(255, 255, 255, 0.1);
+  --pc-white-20: rgba(255, 255, 255, 0.2);
+  --pc-white-30: rgba(255, 255, 255, 0.3);
+  --pc-white-40: rgba(255, 255, 255, 0.4);
+  --pc-white-50: rgba(255, 255, 255, 0.5);
+  --pc-white-60: rgba(255, 255, 255, 0.6);
+  --pc-white-70: rgba(255, 255, 255, 0.7);
+  --pc-white-80: rgba(255, 255, 255, 0.8);
+  --pc-white-90: rgba(255, 255, 255, 0.9);
+  
+  /* Black variants */
+  --pc-black-5: rgba(0, 0, 0, 0.05);
+  --pc-black-10: rgba(0, 0, 0, 0.1);
+  --pc-black-20: rgba(0, 0, 0, 0.2);
+  --pc-black-30: rgba(0, 0, 0, 0.3);
+  --pc-black-40: rgba(0, 0, 0, 0.4);
+  --pc-black-50: rgba(0, 0, 0, 0.5);
+  
+  /* ====================================
+   * TYPOGRAPHY
+   * ==================================== */
+  
+  /* Font Families */
+  --pc-font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --pc-font-body: 'Inter', system-ui, sans-serif;
+  --pc-font-code: 'JetBrains Mono', 'Fira Code', monospace;
+  --pc-font-accessible: 'Atkinson Hyperlegible', sans-serif;
+  
+  /* Font Sizes */
+  --pc-text-xs: 0.75rem;      /* 12px */
+  --pc-text-sm: 0.875rem;     /* 14px */
+  --pc-text-base: 1rem;       /* 16px */
+  --pc-text-lg: 1.125rem;     /* 18px */
+  --pc-text-xl: 1.25rem;      /* 20px */
+  --pc-text-2xl: 1.5rem;      /* 24px */
+  --pc-text-3xl: 1.875rem;    /* 30px */
+  --pc-text-4xl: 2.25rem;     /* 36px */
+  --pc-text-5xl: 3rem;        /* 48px */
+  --pc-text-6xl: 3.75rem;     /* 60px */
+  --pc-text-7xl: 4.5rem;      /* 72px */
+  
+  /* Line Heights */
+  --pc-leading-none: 1;
+  --pc-leading-tight: 1.25;
+  --pc-leading-snug: 1.375;
+  --pc-leading-normal: 1.5;
+  --pc-leading-relaxed: 1.625;
+  --pc-leading-loose: 2;
+  
+  /* Font Weights */
+  --pc-font-normal: 400;
+  --pc-font-medium: 500;
+  --pc-font-semibold: 600;
+  --pc-font-bold: 700;
+  --pc-font-extrabold: 800;
+  
+  /* Letter Spacing */
+  --pc-tracking-tighter: -0.05em;
+  --pc-tracking-tight: -0.025em;
+  --pc-tracking-normal: 0;
+  --pc-tracking-wide: 0.025em;
+  --pc-tracking-wider: 0.05em;
+  --pc-tracking-widest: 0.1em;
+  
+  /* ====================================
+   * SPACING SCALE (4px base)
+   * ==================================== */
+  --pc-space-0: 0;
+  --pc-space-px: 1px;
+  --pc-space-0-5: 0.125rem;   /* 2px */
+  --pc-space-1: 0.25rem;      /* 4px */
+  --pc-space-1-5: 0.375rem;   /* 6px */
+  --pc-space-2: 0.5rem;       /* 8px */
+  --pc-space-2-5: 0.625rem;   /* 10px */
+  --pc-space-3: 0.75rem;      /* 12px */
+  --pc-space-3-5: 0.875rem;   /* 14px */
+  --pc-space-4: 1rem;         /* 16px */
+  --pc-space-5: 1.25rem;      /* 20px */
+  --pc-space-6: 1.5rem;       /* 24px */
+  --pc-space-7: 1.75rem;      /* 28px */
+  --pc-space-8: 2rem;         /* 32px */
+  --pc-space-9: 2.25rem;      /* 36px */
+  --pc-space-10: 2.5rem;      /* 40px */
+  --pc-space-11: 2.75rem;     /* 44px */
+  --pc-space-12: 3rem;        /* 48px */
+  --pc-space-14: 3.5rem;      /* 56px */
+  --pc-space-16: 4rem;        /* 64px */
+  --pc-space-20: 5rem;        /* 80px */
+  --pc-space-24: 6rem;        /* 96px */
+  --pc-space-28: 7rem;        /* 112px */
+  --pc-space-32: 8rem;        /* 128px */
+  --pc-space-36: 9rem;        /* 144px */
+  --pc-space-40: 10rem;       /* 160px */
+  --pc-space-44: 11rem;       /* 176px */
+  --pc-space-48: 12rem;       /* 192px */
+  --pc-space-52: 13rem;       /* 208px */
+  --pc-space-56: 14rem;       /* 224px */
+  --pc-space-60: 15rem;       /* 240px */
+  --pc-space-64: 16rem;       /* 256px */
+  --pc-space-72: 18rem;       /* 288px */
+  --pc-space-80: 20rem;       /* 320px */
+  --pc-space-96: 24rem;       /* 384px */
+  
+  /* ====================================
+   * BORDER RADIUS
+   * ==================================== */
+  --pc-rounded-none: 0;
+  --pc-rounded-sm: 0.25rem;   /* 4px */
+  --pc-rounded-md: 0.5rem;    /* 8px */
+  --pc-rounded-lg: 0.75rem;   /* 12px */
+  --pc-rounded-xl: 1rem;      /* 16px */
+  --pc-rounded-2xl: 1.5rem;   /* 24px */
+  --pc-rounded-3xl: 2rem;     /* 32px */
+  --pc-rounded-full: 9999px;
+  
+  /* ====================================
+   * SHADOWS & GLOW
+   * ==================================== */
+  --pc-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --pc-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --pc-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --pc-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  --pc-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  
+  /* Glow Effects */
+  --pc-glow-purple: 0 0 20px rgba(129, 140, 248, 0.4);
+  --pc-glow-cyan: 0 0 20px rgba(34, 211, 238, 0.4);
+  --pc-glow-teal: 0 0 20px rgba(0, 245, 212, 0.4);
+  --pc-glow-green: 0 0 20px rgba(16, 185, 129, 0.4);
+  --pc-glow-red: 0 0 20px rgba(239, 68, 68, 0.4);
+  
+  /* ====================================
+   * Z-INDEX SCALE
+   * ==================================== */
+  --pc-z-hide: -1;
+  --pc-z-base: 0;
+  --pc-z-dropdown: 100;
+  --pc-z-sticky: 200;
+  --pc-z-overlay: 300;
+  --pc-z-modal: 400;
+  --pc-z-popover: 500;
+  --pc-z-toast: 600;
+  --pc-z-tooltip: 700;
+  --pc-z-max: 9999;
+  
+  /* ====================================
+   * TRANSITIONS & ANIMATIONS
+   * ==================================== */
+  
+  /* Duration */
+  --pc-duration-instant: 50ms;
+  --pc-duration-faster: 100ms;
+  --pc-duration-fast: 150ms;
+  --pc-duration-quick: 200ms;
+  --pc-duration-moderate: 300ms;
+  --pc-duration-slow: 400ms;
+  --pc-duration-slower: 500ms;
+  --pc-duration-slowest: 700ms;
+  
+  /* Easing */
+  --pc-ease-linear: linear;
+  --pc-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --pc-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --pc-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --pc-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --pc-ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --pc-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* ====================================
+   * CONTAINER WIDTHS
+   * ==================================== */
+  --pc-container-xs: 20rem;   /* 320px */
+  --pc-container-sm: 24rem;   /* 384px */
+  --pc-container-md: 28rem;   /* 448px */
+  --pc-container-lg: 32rem;   /* 512px */
+  --pc-container-xl: 36rem;   /* 576px */
+  --pc-container-2xl: 42rem;  /* 672px */
+  --pc-container-3xl: 48rem;  /* 768px */
+  --pc-container-4xl: 56rem;  /* 896px */
+  --pc-container-5xl: 64rem;  /* 1024px */
+  --pc-container-6xl: 72rem;  /* 1152px */
+  --pc-container-7xl: 80rem;  /* 1280px */
+  --pc-container-full: 100%;
+  
+  /* ====================================
+   * GLASS MORPHISM
+   * ==================================== */
+  --pc-glass-bg: rgba(20, 20, 32, 0.8);
+  --pc-glass-border: rgba(255, 255, 255, 0.1);
+  --pc-glass-blur: 12px;
+  
+  /* ====================================
+   * ZK PROOF SPECIFIC
+   * ==================================== */
+  --pc-zk-pending: #F59E0B;
+  --pc-zk-generating: #22D3EE;
+  --pc-zk-verifying: #818CF8;
+  --pc-zk-verified: #10B981;
+  --pc-zk-failed: #EF4444;
+}
+
+/* Dark mode is default for Cipher Noir */
+[data-theme="dark"],
+.dark,
+:root {
+  color-scheme: dark;
+}
+
+/* Optional light mode overrides (if ever needed) */
+[data-theme="light"] {
+  --pc-surface-base: #FFFFFF;
+  --pc-surface-elevated: #F5F5F5;
+  --pc-text-primary: #0A0A0F;
+  --pc-text-secondary: #4B4B5E;
+}
